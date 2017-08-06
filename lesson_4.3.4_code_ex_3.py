@@ -30,34 +30,43 @@
 
 #Write your function here!
 def two_dimensional_booleans(bool_superlist, use_and):
+    length_of_super_bool_list = len(bool_superlist)
     if use_and is False:
         for bool_sub_list in bool_superlist:
-            true_count = 0
             result = []
+            #print("\nThis is one loop pass with the use_and value of: False\n")
+            false_count = 0
             for num in bool_sub_list:
-                if num is True:
-                    true_count += 1
+                if num is False:
+                    false_count += 1
                 else:
                     pass
-                if true_count > 0:
+                if false_count == len(bool_sub_list):
                     result.append(False)
+                    #print("False")
                 else:
                     result.append(True)
+                    #print("True")
+        #slice the result list down to contain ONLY the number of elements as the length of the super book list eg: supoer bool list is 3 elements long slice results to 3 emements
+        result = result[0:length_of_super_bool_list]
         return result
     elif use_and is True:
+        result = []
         for bool_sub_list in bool_superlist:
+            #print("\nThis is one loop pass with the use_and value of: True\n")
             true_count = 0
-            result = []
             for num in bool_sub_list:
-                print(true_count)
                 if num is True:
                     true_count += 1
                 else:
                     pass
-                if true_count == len(bool_sub_list):
-                    result.append(True)
-                else:
-                    result.append(False)
+            if true_count == len(bool_sub_list):
+                result.append(True)
+                #print("True")
+            else:
+                result.append(False)
+                #print("False")
+        result = result[0:length_of_super_bool_list]
         return result
 
 #Below are some lines of code that will test your function.
@@ -68,6 +77,8 @@ def two_dimensional_booleans(bool_superlist, use_and):
 #print:
 #[True, False, False]
 #[True, True, False]
-bool_superlist = [[True, True, True], [True, False, True], [False, False, False]]
+#bool_superlist = [[True, True, True], [True, False, True], [False, False, False]]
+#bool_superlist = [[True, True], [True, False, True, False], [True, False, False, False, True, True]]
+bool_superlist = [[True, True], [True, True], [False, True, False], [True, False, False]]
 print(two_dimensional_booleans(bool_superlist, True))
 print(two_dimensional_booleans(bool_superlist, False))
