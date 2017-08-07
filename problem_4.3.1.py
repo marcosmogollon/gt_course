@@ -15,6 +15,13 @@
 
 
 #Write your function here!
+def lucky_sevens(sevens_list):
+    sevens_string = ''.join(str(i) for i in sevens_list)
+    print(sevens_string)
+    if "777" in sevens_string:
+        return True
+    else:
+        return False
 
 
 
