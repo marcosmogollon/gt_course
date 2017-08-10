@@ -26,9 +26,15 @@ def grade_scantron(answers, key):
     if not answers_length == key_length:
         return -1
     else:
-        questions_right = set(key) & set(answers)
-
+        for index_key, value_key in enumerate(key):
+            if (value_key == answers[index_key]):
+                questions_right += 1
+            else:
+                pass
     return questions_right
+
+
+
 
 
 #Below are some lines of code that will test your function.
