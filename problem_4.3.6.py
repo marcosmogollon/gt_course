@@ -19,6 +19,17 @@
 
 
 #Write your function here!
+def string_splitter(my_string):
+    first_word = ""
+    second_word = ""
+    for index, value in enumerate(my_string):
+        if value == " ":
+            first_word = my_string[0:index]
+            second_word = my_string[(index + 1):]
+            new_list = [first_word, second_word]
+        elif not " " in my_string:
+            new_list = [my_string]
+    return new_list
 
 
 
@@ -28,4 +39,5 @@
 #
 #If your function works correctly, this will originally
 #print: ['Hello', 'world']
-print(string_splitter("Hello world"))
+#print(string_splitter("Hello world"))
+print(string_splitter("Hello"))
