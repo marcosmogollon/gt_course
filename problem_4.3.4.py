@@ -24,24 +24,22 @@ import math
 
 
 #Write your function here!
-def solve_right_triangle(opposite, adjacent, use_degrees=False):
-
+def solve_right_triangle(opposite, adjacent, use_degrees = False):
+    angle_in_radians = math.atan(opposite / adjacent)
+    angle_in_degrees = math.degrees(angle_in_radians)
     hypotenuse = 0
     if use_degrees is False:
         #the angle should be in radians
-        op_square = opposite ** opposite
-        adj_square = adjacent ** adjacent
+        op_square = opposite ** 2
+        adj_square = adjacent ** 2
         hypotenuse = math.sqrt(op_square + adj_square)
-        angle_right_triangle = math.atan(hypotenuse)
-        answer = (hypotenuse, angle_right_triangle)
+        answer = (hypotenuse, angle_in_radians)
     elif use_degrees is True:
         #the angle shpuld be in degrees
-        op_square = opposite ** opposite
-        adj_square = adjacent ** adjacent
-        angle_right_triangle = math.sqrt(op_square + adj_square)
-        angle_right_triangle = math.degrees(hypotenuse)
-        answer = (hypotenuse, angle_right_triangle)
-
+        op_square = opposite ** 2
+        adj_square = adjacent ** 2
+        hypotenuse = math.sqrt(op_square + adj_square)
+        answer = (hypotenuse, angle_in_degrees)
     return answer
 
 
