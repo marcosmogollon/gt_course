@@ -12,7 +12,14 @@
 
 #Write your function here!
 
-
+"""
+sudo code
+- iterate through the master list (for loop enumerate)
+- iterate through each tuple (nested for loop)
+- make two lists one for movies and one for sales numbers
+- search the sales list for the largest number and get the index value
+- using the sales index value return the same index value from movie name
+"""
 
 #Below are some lines of code that will test your function.
 #You can change the value of the variable(s) to test your
