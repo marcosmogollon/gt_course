@@ -22,15 +22,19 @@
 #Write your function here!
 def load_file(file_name):
     input_file = open(file_name, "r")
-    check_var_type = input_file.readline()
+    check_var = input_file.readline()
     try:
-        check_var_type = int(check_var_type)
-        return check_var_type
+        #test for an integer and return it if yes
+        new_var = int(check_var)
+        return new_var
     except ValueError:
-        try check_var_type = float(check_var_type)
-            return check_var_type
+        try:
+            #test if this is a float and return it if yes
+            new_var = float(check_var)
+            return new_var
+        #if its not an int and not a float, then its a string
         except ValueError:
-            return check_var_type
+            return check_var
     input_file.close()
 
 
