@@ -11,7 +11,54 @@
 
 
 #Write your function here!
+def find_max_sales(movies_list):
+    movies = []
+    movie_names = []
+    movie_sales = []
+    most_sales = 0
+    most_sales_index = 0
+    # extract all movie names and sales to a list
+    for movie in movies_list:
+        for i in movie:
+            movies.append(i)
+    # make two lists
+    for i in movies:
+        if isinstance(i, int):
+            movie_sales.append(i)
+        else:
+            movie_names.append(i)
+    # get the highest amount of sales
+    most_sales = max(movie_sales)
+    # check which is the highest integer and find the index
+    for index, i in enumerate(movie_sales):
+        if i == most_sales:
+            most_sales_index = index
+        else:
+            pass
+    return movie_names[most_sales_index]
 
+
+
+
+
+
+
+"""
+- pull out all values into a list
+- iterate through and find the larget integer and the index
+- minus one from the list index and return that value (movie name)
+
+OR:
+- pull out all values into a list
+- make two more lists one for movie name and one for movie sales
+- find the larget integer in the sales list and get the index value
+- return the same index from the name list
+"""
+
+"""
+Solution 1
+----------
+"""
 """
 sudo code
 - iterate through the master list (for loop enumerate)
