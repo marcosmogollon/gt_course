@@ -76,15 +76,14 @@ def format_checker(input_file):
     file_name = open(input_file, "r")
     for i in file_name:
         try:
-            holding_int_var = int(i)
-            reading_list.append(int(holding_int_var))
-            print(type(i))
+            int(i)
+            reading_list.append(int(i))
+            #print(type(i))
         except ValueError:
             try:
-                i.strip()
                 float(i)
                 reading_list.append(float(i))
-                print(type(i))
+                #print(type(i))
             except ValueError:
                 reading_list.append(i.strip().split())
     file_name.close()
@@ -116,9 +115,9 @@ def format_checker(input_file):
             #elif not isinstance(line[4], float):
             # check if the 5th element of each sublist is a float AND check that they all add up to 1
                 #return False
-        for list in reading_list:
-            for i in list:
-                print(type(i))
+        #for list in reading_list:
+        #    for i in list:
+        #        print(type(i))
     print(reading_list)
 
 
