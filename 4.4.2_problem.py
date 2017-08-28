@@ -71,68 +71,55 @@
 #Write your function here!
 def format_checker(input_file):
     reading_list = []
-    holding_var = ""
+    holding_int_var = 0
     checking_type = []
     file_name = open(input_file, "r")
     for i in file_name:
-        for row in i:
+        try:
+            holding_int_var = int(i)
+            reading_list.append(int(holding_int_var))
+            print(type(i))
+        except ValueError:
             try:
-                int(row)
-                reading_list.append(int(row))
+                i.strip()
+                float(i)
+                reading_list.append(float(i))
+                print(type(i))
             except ValueError:
-                try:
-                    float(row)
-                    reading_list.append(float(row))
-                except ValueError:
-                    reading_list.append(row.strip().split())
-        #if isinstance(i, float):
-    #        reading_list.append(float(i))
-#        elif isinstance(i, int):
-#            reading_list.append(int(i))
-#        else:
-#            reading_list.append(i.strip().split())
+                reading_list.append(i.strip().split())
     file_name.close()
-    # iterate through each sublist
-    #for line in reading_list:
-        # check if there are 5 elements in each sublist else throw False
-        #if not len(line) == 5:
-        #    return False
-        #elif not isinstance(line[4], float):
-        # check if the 5th element of each sublist is a float AND check that they all add up to 1
-            #return False
+        # convert to the correct type
+    for list in reading_list:
+        # check if the list contains 5 elements otherwise throw False now
+        if not len(list) == 5:
+            return False
+        else:
+            try:
+                for idx, value in enumerate(list):
+                    if idx == 0:
+                        list[idx] = int(list[idx])
+                    elif idx == 1:
+                        list[idx] = str(list[idx])
+                    elif idx == 2:
+                        list[idx] = int(list[idx])
+                    elif idx == 3:
+                        list[idx] = int(list[idx])
+                    elif idx == 4:
+                        list[idx] = float(list[idx])
+            except ValueError:
+                continue
+        # iterate through each sublist
+        #for line in reading_list:
+            # check if there are 5 elements in each sublist else throw False
+            #if not len(line) == 5:
+            #    return False
+            #elif not isinstance(line[4], float):
+            # check if the 5th element of each sublist is a float AND check that they all add up to 1
+                #return False
+        for list in reading_list:
+            for i in list:
+                print(type(i))
     print(reading_list)
-
-    # check if the 1st, 3rd and 5th element are integers
-
-
-    # else return true
-
-
-
-
-
-
-
-"""
-new filetype called .cs1301
-
-file structure:
-number assignment_name grade total weight
-
-number = int
-assignment_name = string
-grade/total = int
-weight = float (should all add up to 1)
-
-"""
-
-
-
-
-
-
-
-
 
 
 
