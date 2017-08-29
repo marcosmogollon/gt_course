@@ -71,8 +71,8 @@
 #Write your function here!
 def format_checker(input_file):
     reading_list = []
-    holding_int_var = 0
     checking_type = []
+    counting_average = 0
     file_name = open(input_file, "r")
     for i in file_name:
         try:
@@ -92,7 +92,7 @@ def format_checker(input_file):
         # check if the list contains 5 elements otherwise throw False now
         if not len(list) == 5:
             return False
-        else:
+        elif list:
             try:
                 for idx, value in enumerate(list):
                     if idx == 0:
@@ -107,6 +107,13 @@ def format_checker(input_file):
                         list[idx] = float(list[idx])
             except ValueError:
                 continue
+
+    for number in reading_list:
+        counting_average += number[4]
+    if not counting_average == 1:
+        return False
+    else:
+        return True
         # iterate through each sublist
         #for line in reading_list:
             # check if there are 5 elements in each sublist else throw False
