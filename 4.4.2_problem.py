@@ -83,7 +83,7 @@ def format_checker(input_file):
             except ValueError:
                 reading_list.append(i.strip().split())
     file_name.close()
-        # convert to the correct type
+
     for sub_list in reading_list:
         # try and convert items in the list into the correct datatypes
         try:
@@ -101,32 +101,32 @@ def format_checker(input_file):
         except ValueError:
             continue
         finally: # data should be in the correct format, now check for the constraints
-        # check if the sub_list contains 5 elements otherwise throw False now
+            # check if the sub_list contains 5 elements otherwise throw False now
+            weight_count = 0
             if not len(sub_list) == 5:
                 return False
             else:
                 # var for keeping count of the weight
-                counting_average = 0
-                for i in sub_list:
-                    if index == 4:
-                        counting_average += float(value)
-                    elif (index == 0) and (type(value) != int):
-                        return False
-                    elif (index == 1) and (type(value) != str):
-                        return False
-                    elif (index == 2) and (type(value) != int):
-                        return False
-                    elif (index == 3) and (type(value) != int):
-                        return False
-                print(counting_average)
+                for sub_list in reading_list:
+                    for index, value in enumerate(sub_list):
+                        if (index == 0) and (type(value) != int):
+                            return False
+                        elif (index == 1) and (type(value) != str):
+                            return False
+                        elif (index == 2) and (type(value) != int):
+                            return False
+                        elif (index == 3) and (type(value) != int):
+                            return False
+                        elif index == 4:
+                            weight_count += value
+            print(weight_count)
+            #print(weight_count)
                 # check if the weight is equal to 1
-                if counting_average == 1:
-                    return True
-                else:
-                    return "False End"
-                """
+            if weight_count == 1:
+                return True
+            else:
+                return "False End"
 
-                """
 
 #Test your function below. With the original values of these
 #files, these should print True, then False:
