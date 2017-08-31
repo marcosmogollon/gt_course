@@ -102,14 +102,18 @@ def format_checker(input_file):
             continue
         finally: # data should be in the correct format, now check for the constraints
             # check if the sub_list contains 5 elements otherwise throw False now
-            weight_count = 0
+
             if not len(sub_list) == 5:
                 return False
             else:
                 # var for keeping count of the weight
+                weight_count = []
                 for sub_list in reading_list:
                     for index, value in enumerate(sub_list):
-                        if (index == 0) and (type(value) != int):
+                        if index == 4:
+                            weight_count.append(value)
+                        """
+                        elif (index == 0) and (type(value) != int):
                             return False
                         elif (index == 1) and (type(value) != str):
                             return False
@@ -117,9 +121,8 @@ def format_checker(input_file):
                             return False
                         elif (index == 3) and (type(value) != int):
                             return False
-                        elif index == 4:
-                            weight_count += value
-            print(weight_count)
+                        """
+                print(weight_count)
             #print(weight_count)
                 # check if the weight is equal to 1
             if weight_count == 1:
