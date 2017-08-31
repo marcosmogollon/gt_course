@@ -87,40 +87,32 @@ def format_checker(input_file):
                 reading_list.append(i.strip().split())
     file_name.close()
         # convert to the correct type
-    for list in reading_list:
+    for sub_list in reading_list:
         # try and convert items in the list into the correct datatypes
         try:
-            for idx, value in enumerate(list):
+            for idx, value in enumerate(sub_list):
                 if idx == 0:
-                    list[idx] = int(list[idx])
+                    sub_list[idx] = int(sub_list[idx])
                 elif idx == 1:
-                    list[idx] = str(list[idx])
+                    sub_list[idx] = str(sub_list[idx])
                 elif idx == 2:
-                    list[idx] = int(list[idx])
+                    sub_list[idx] = int(sub_list[idx])
                 elif idx == 3:
-                    list[idx] = int(list[idx])
+                    sub_list[idx] = int(sub_list[idx])
                 elif idx == 4:
-                    list[idx] = float(list[idx])
-                counting_average += number[4]
+                    sub_list[idx] = float(sub_list[idx])
         except ValueError:
             continue
         finally: # data should be in the correct format, now check for the constraints
-        # check if the list contains 5 elements otherwise throw False now
-            if not len(list) == 5:
+        # check if the sub_list contains 5 elements otherwise throw False now
+            if not len(sub_list) == 5:
                 return False
             else:
                 # sum up all the numbers in the 4th column
                 counting_average = 0
-                for list in reading_list:
-                    for index, value in enumerate(number):
-                        if index == 4:
-                            counting_average +=
-                        #print(value[4])
+                #counting_average = sum(sub_list[4] for sub_list in reading_list)
                 # check that the sum of the 5th element (weight) equals 1
-                    if not counting_average == 1:
-                        return False
-                    else:
-                        return True
+        print(reading_list)
     #print(reading_list)
 
 
