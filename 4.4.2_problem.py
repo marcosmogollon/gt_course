@@ -108,16 +108,16 @@ def format_checker(input_file):
                 # var for keeping count of the weight
                 counting_average = 0
                 for i in sub_list:
-                    while i == 4:
+                    if index == 4:
                         counting_average += float(value)
-                    if (i == 0) and (type(value) != int):
-                        return "False 1"
-                    elif (i == 1) and (type(value) != str):
-                        return "False 2"
-                    elif (i == 2) and (type(value) != int):
-                            return "False 3"
-                    elif (i == 3) and (type(value) != int):
-                            return "False 4"
+                    elif (index == 0) and (type(value) != int):
+                        return False
+                    elif (index == 1) and (type(value) != str):
+                        return False
+                    elif (index == 2) and (type(value) != int):
+                        return False
+                    elif (index == 3) and (type(value) != int):
+                        return False
                 print(counting_average)
                 # check if the weight is equal to 1
                 if counting_average == 1:
@@ -125,18 +125,7 @@ def format_checker(input_file):
                 else:
                     return "False End"
                 """
-                if index == 4:
-                    counting_average += float(value)
-                elif (index == 0) and (type(value) != int):
-                    return False
-                elif (index == 1) and (type(value) != str):
-                    return False
-                elif (index == 2) and (type(value) != int):
-                    return False
-                elif (index == 3) and (type(value) != int):
-                    return False
-                else:
-                    pass
+
                 """
 
 #Test your function below. With the original values of these
