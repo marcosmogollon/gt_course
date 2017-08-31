@@ -111,7 +111,7 @@ def format_checker(input_file):
                 for sub_list in reading_list:
                     for index, value in enumerate(sub_list):
                         if index == 4:
-                            weight_count.append(value)
+                            weight_count.append(float(value))
                         """
                         elif (index == 0) and (type(value) != int):
                             return False
@@ -122,7 +122,7 @@ def format_checker(input_file):
                         elif (index == 3) and (type(value) != int):
                             return False
                         """
-                print(weight_count)
+                print(sum(weight_count))
             #print(weight_count)
                 # check if the weight is equal to 1
             if weight_count == 1:
