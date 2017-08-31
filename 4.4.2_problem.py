@@ -72,7 +72,6 @@
 def format_checker(input_file):
     reading_list = []
     checking_type = []
-    counting_average = 0
     file_name = open(input_file, "r")
     for i in file_name:
         try:
@@ -89,43 +88,40 @@ def format_checker(input_file):
     file_name.close()
         # convert to the correct type
     for list in reading_list:
+        # try and convert items in the list into the correct datatypes
+        try:
+            for idx, value in enumerate(list):
+                if idx == 0:
+                    list[idx] = int(list[idx])
+                elif idx == 1:
+                    list[idx] = str(list[idx])
+                elif idx == 2:
+                    list[idx] = int(list[idx])
+                elif idx == 3:
+                    list[idx] = int(list[idx])
+                elif idx == 4:
+                    list[idx] = float(list[idx])
+                counting_average += number[4]
+        except ValueError:
+            continue
+        finally: # data should be in the correct format, now check for the constraints
         # check if the list contains 5 elements otherwise throw False now
-        if not len(list) == 5:
-            return False
-        elif list:
-            try:
-                for idx, value in enumerate(list):
-                    if idx == 0:
-                        list[idx] = int(list[idx])
-                    elif idx == 1:
-                        list[idx] = str(list[idx])
-                    elif idx == 2:
-                        list[idx] = int(list[idx])
-                    elif idx == 3:
-                        list[idx] = int(list[idx])
-                    elif idx == 4:
-                        list[idx] = float(list[idx])
-            except ValueError:
-                continue
-
-    for number in reading_list:
-        counting_average += number[4]
-    if not counting_average == 1:
-        return False
-    else:
-        return True
-        # iterate through each sublist
-        #for line in reading_list:
-            # check if there are 5 elements in each sublist else throw False
-            #if not len(line) == 5:
-            #    return False
-            #elif not isinstance(line[4], float):
-            # check if the 5th element of each sublist is a float AND check that they all add up to 1
-                #return False
-        #for list in reading_list:
-        #    for i in list:
-        #        print(type(i))
-    print(reading_list)
+            if not len(list) == 5:
+                return False
+            else:
+                # sum up all the numbers in the 4th column
+                counting_average = 0
+                for list in reading_list:
+                    for index, value in enumerate(number):
+                        if index == 4:
+                            counting_average +=
+                        #print(value[4])
+                # check that the sum of the 5th element (weight) equals 1
+                    if not counting_average == 1:
+                        return False
+                    else:
+                        return True
+    #print(reading_list)
 
 
 
