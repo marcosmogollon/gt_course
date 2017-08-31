@@ -105,31 +105,39 @@ def format_checker(input_file):
             if not len(sub_list) == 5:
                 return False
             else:
+                # var for keeping count of the weight
                 counting_average = 0
-                for sub_list in reading_list:
-                    for index, value in enumerate(sub_list):
-                        if index == 4:
-                            counting_average += float(value)
-                        else:
-                            pass
-                    #print("The index is: {}".format(index))
-                    #print("The value is: {}".format(value))
-                #print(counting_average)
-                #print("END OF SUBLIST")
+                for i in sub_list:
+                    while i == 4:
+                        counting_average += float(value)
+                    if (i == 0) and (type(value) != int):
+                        return "False 1"
+                    elif (i == 1) and (type(value) != str):
+                        return "False 2"
+                    elif (i == 2) and (type(value) != int):
+                            return "False 3"
+                    elif (i == 3) and (type(value) != int):
+                            return "False 4"
+                print(counting_average)
+                # check if the weight is equal to 1
                 if counting_average == 1:
                     return True
                 else:
+                    return "False End"
+                """
+                if index == 4:
+                    counting_average += float(value)
+                elif (index == 0) and (type(value) != int):
                     return False
-
-                # sum up all the numbers in the 4th column
-
-                #counting_average = sum(sub_list[4] for sub_list in reading_list)
-                # check that the sum of the 5th element (weight) equals 1
-        #print(reading_list)
-    #print(reading_list)
-
-
-
+                elif (index == 1) and (type(value) != str):
+                    return False
+                elif (index == 2) and (type(value) != int):
+                    return False
+                elif (index == 3) and (type(value) != int):
+                    return False
+                else:
+                    pass
+                """
 
 #Test your function below. With the original values of these
 #files, these should print True, then False:
