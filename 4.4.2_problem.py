@@ -122,13 +122,11 @@ def format_checker(input_file):
                         elif (index == 3) and (type(value) != int):
                             return False
                         """
-                print(sum(weight_count))
-            #print(weight_count)
-                # check if the weight is equal to 1
-            if weight_count == 1:
-                return True
-            else:
-                return "False End"
+                if sum(weight_count) == 1:
+                    return True
+                else:
+                    return False
+
 
 
 #Test your function below. With the original values of these
