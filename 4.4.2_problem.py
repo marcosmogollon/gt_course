@@ -71,18 +71,15 @@
 #Write your function here!
 def format_checker(input_file):
     reading_list = []
-    checking_type = []
     file_name = open(input_file, "r")
     for i in file_name:
         try:
             int(i)
             reading_list.append(int(i))
-            #print(type(i))
         except ValueError:
             try:
                 float(i)
                 reading_list.append(float(i))
-                #print(type(i))
             except ValueError:
                 reading_list.append(i.strip().split())
     file_name.close()
@@ -108,11 +105,27 @@ def format_checker(input_file):
             if not len(sub_list) == 5:
                 return False
             else:
-                # sum up all the numbers in the 4th column
                 counting_average = 0
+                for sub_list in reading_list:
+                    for index, value in enumerate(sub_list):
+                        if index == 4:
+                            counting_average += float(value)
+                        else:
+                            pass
+                    #print("The index is: {}".format(index))
+                    #print("The value is: {}".format(value))
+                #print(counting_average)
+                #print("END OF SUBLIST")
+                if counting_average == 1:
+                    return True
+                else:
+                    return False
+
+                # sum up all the numbers in the 4th column
+
                 #counting_average = sum(sub_list[4] for sub_list in reading_list)
                 # check that the sum of the 5th element (weight) equals 1
-        print(reading_list)
+        #print(reading_list)
     #print(reading_list)
 
 
