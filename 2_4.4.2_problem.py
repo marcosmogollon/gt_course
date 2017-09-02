@@ -67,6 +67,7 @@
 #the hard part is knitting this all together into one bigger
 #solution.
 
+import pdb
 
 #Write your function here!
 def format_checker(input_file):
@@ -83,51 +84,28 @@ def format_checker(input_file):
             except ValueError:
                 reading_list.append(i.strip().split())
     file_name.close()
-
+    weight_count = []
     for sub_list in reading_list:
-        # try and convert items in the list into the correct datatypes
-        try:
-            for idx, value in enumerate(sub_list):
-                if idx == 0:
-                    sub_list[idx] = int(sub_list[idx])
-                elif idx == 1:
-                    sub_list[idx] = str(sub_list[idx])
-                elif idx == 2:
-                    sub_list[idx] = int(sub_list[idx])
-                elif idx == 3:
-                    sub_list[idx] = int(sub_list[idx])
-                elif idx == 4:
-                    sub_list[idx] = float(sub_list[idx])
-        except ValueError:
-            continue
-        finally: # data should be in the correct format, now check for the constraints
-            # check if the sub_list contains 5 elements otherwise throw False now
+        if not len(sub_list) == 5:
+            return False
+        else:
+            # try and convert items in the list into the correct datatypes
+            try:
+                for item in sub_list:
+                    if (all((type(item[0]) is int) and (type(item[1]) is str) and (type(item[2]) is int) and (type(item[2]) is int) and (type(item[3]) is float))):
+                            weight_count.append(float(item[4]))
+                    else:
+                        return False
+            except:
+                pass
 
-            if not len(sub_list) == 5:
-                return False
-            else:
-                print(reading_list)
-                print(sub_list)
-                # var for keeping count of the weight
-                weight_count = []
-                for sub_list in reading_list:
-                    for index, value in enumerate(sub_list):
-                        if index == 4:
-                            weight_count.append(float(value))
-                        """
-                        elif (index == 0) and (type(value) != int):
-                            return False
-                        elif (index == 1) and (type(value) != str):
-                            return False
-                        elif (index == 2) and (type(value) != int):
-                            return False
-                        elif (index == 3) and (type(value) != int):
-                            return False
-                        """
-                if sum(weight_count) == 1:
-                    return True
-                else:
-                    return False
+    if sum(weight_count) == 1:
+        return True
+    else:
+        return False
+
+    return True
+
 
 
 
