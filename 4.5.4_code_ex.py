@@ -28,15 +28,28 @@
 
 #Write your function here!
 def length_words(my_string):
-    my_string_list = my_string.split()
+    #clean up the string
+    my_string = my_string.replace(".", "")
+    my_string = my_string.replace(",", "")
+    my_string = my_string.replace("?", "")
+    my_string = my_string.replace("!", "")
+    my_string = my_string.replace("'", "")
+    my_string = my_string.lower()
+    my_string = my_string.split()
+    #create the dictionary
     word_dictionary = {}
-    for word in my_string_list:
+    for word in my_string:
+        # get the length of the current word to use as the dictionary key
         word_length = len(word)
-        if not word_dictionary[word_length] in word_dictionary:
-            word_dictionary[word_length] = word
+        #check if the current length is already in the dict and append the word if so
+        if word_length in word_dictionary:
+            word_dictionary[word_length].append(word)
         else:
+            #the current length does not yet exist, create the nested list and then append the word to it
+            word_dictionary[word_length] = []
             word_dictionary[word_length].append(word)
     return word_dictionary
+
 
 
 #Below are some lines of code that will test your function.
