@@ -73,63 +73,55 @@ def format_checker(input_file):
     reading_list = []
     file_name = open(input_file, "r")
     for i in file_name:
-        try:
-            int(i)
-            reading_list.append(int(i))
-        except ValueError:
-            try:
-                float(i)
-                reading_list.append(float(i))
-            except ValueError:
-                reading_list.append(i.strip().split())
+        reading_list.append(i.strip().split())
     file_name.close()
-
-    for sub_list in reading_list:
-        # try and convert items in the list into the correct datatypes
-        try:
-            for idx, value in enumerate(sub_list):
-                if idx == 0:
-                    sub_list[idx] = int(sub_list[idx])
-                elif idx == 1:
-                    sub_list[idx] = str(sub_list[idx])
-                elif idx == 2:
-                    sub_list[idx] = int(sub_list[idx])
-                elif idx == 3:
-                    sub_list[idx] = int(sub_list[idx])
-                elif idx == 4:
-                    sub_list[idx] = float(sub_list[idx])
-        except ValueError:
-            continue
-        finally: # data should be in the correct format, now check for the constraints
-            # check if the sub_list contains 5 elements otherwise throw False now
-
+    # At this point the readling list contains all strings!
+    try:
+        #var for tracking the weight
+        weight_count = []
+        for sub_list in reading_list:
             if not len(sub_list) == 5:
                 return False
             else:
-                print(reading_list)
-                print(sub_list)
-                # var for keeping count of the weight
-                weight_count = []
-                for sub_list in reading_list:
-                    for index, value in enumerate(sub_list):
-                        if index == 4:
-                            weight_count.append(float(value))
-                        """
-                        elif (index == 0) and (type(value) != int):
-                            return False
-                        elif (index == 1) and (type(value) != str):
-                            return False
-                        elif (index == 2) and (type(value) != int):
-                            return False
-                        elif (index == 3) and (type(value) != int):
-                            return False
-                        """
-                if sum(weight_count) == 1:
-                    return True
-                else:
-                    return False
-
-
+                # try and convert items in the list into the correct datatypes
+                # keep a counter to check where in the sublist we are up to and then convert based on this
+                count = 0
+                for i in sub_list:
+                    if count == 0:
+                        location = count
+                        sub_list.remove(i)
+                        sub_list.insert(location, int(i))
+                        count += 1
+                    elif count == 1:
+                        location = count
+                        sub_list.remove(i)
+                        sub_list.insert(location, str(i))
+                        count += 1
+                    elif count == 2:
+                        location = count
+                        sub_list.remove(i)
+                        sub_list.insert(location, int(i))
+                        count += 1
+                    elif count == 3:
+                        location = count
+                        sub_list.remove(i)
+                        sub_list.insert(location, int(i))
+                        count += 1
+                    elif count == 4:
+                        location = count
+                        sub_list.remove(i)
+                        sub_list.insert(location, float(i))
+                        count += 1
+                        # append value to weight tracking list
+                        weight_count.append(float(i))
+    except ValueError:
+        pass
+    finally:
+        #check if the total weight (for all sub_lists) adds up to 1
+        if sum(weight_count) == 1:
+            return True
+        else:
+            return False
 
 #Test your function below. With the original values of these
 #files, these should print True, then False:
