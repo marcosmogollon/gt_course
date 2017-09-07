@@ -24,8 +24,31 @@
 
 
 #Write your function here!
-def course_info(my_list_of_tuples):
-    
+def course_info(list_of_tuples):
+    student_names = []
+    student_ages = float(0)
+    final_dict = {}
+    #iterate through the outer list
+    for i in list_of_tuples:
+        student_names.append(i[0])
+        student_ages += i[1]
+    #get the number of students to work out the average
+    average_divisor = len(student_names)
+    average_age = student_ages / average_divisor
+    # create the key/value pairs in the dict
+    final_dict["students"] = student_names
+    final_dict["avg_age"] = average_age
+    return final_dict
+
+
+
+"""
+- Add all student names to a list
+- add all the studnt ages to a float
+- divide the float by the number of students
+- create a dict with the key(studnet_names-list) and a value of the average_age
+"""
+
 
 
 #Below are some lines of code that will test your function.
