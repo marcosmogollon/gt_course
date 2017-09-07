@@ -40,7 +40,31 @@ french_dict = {"me": "moi", "hello": "bonjour",
 
 #Write your function here!
 def french2eng(sentence):
-    
+    intermediate_list = []
+    final_string = ""
+    # split all words into a list
+    sentence = sentence.lower()
+    words_to_translate = sentence.split()
+    # check if the words in the french dictionary
+    for i in words_to_translate:
+        #if found add to the list
+        if i in french_dict:
+            intermediate_list.append(french_dict[i])
+        #if the word is not found append the english word
+        else:
+            intermediate_list.append(i)
+    # join all words in the list together with a space in between
+    for x in intermediate_list:
+        final_string = " ".join(intermediate_list)
+    return final_string
+
+
+
+"""
+- convert the sentence to lower case
+- split the sentence into a lit of individual strings
+-
+"""
 
 
 #Below are some lines of code that will test your function.
