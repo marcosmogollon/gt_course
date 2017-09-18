@@ -41,26 +41,28 @@
 
 class TodoItem:
     def __init__(self, title, description, completed=False):
-        self.title = title
-        self.description = description
-        self.completed = completed
+        # declare the variable by referencing the method below to check what it needed (do something etc) at the time it is set
+        self.title = self.setTitle(title)
+        self.description = self.setDescription(description)
+        self.completed = self.setCompleted(completed)
 
-    def getTitle(self, title):
-        self.title = title
-        print(title, "accessed")
+    def getTitle(self): # no need for the positional parameter, its already set in the constructor
+        print("title accessed") # print the required output BEFORE the return statement
+        return self.title
 
-    def getDescription(self, description):
-        self.description = description
-        print(description, "accessed")
+    def getDescription(self):
+        print("description accessed")
+        return self.description
 
-    def getCompleted(self, completed ):
-        self.completed = completed
-        print(completed, "accessed")
+    def getCompleted(self):
+        print("completed accessed")
+        return self.completed
 
     def setTitle(self, title):
         print("title changed")
         if type(title) == str:
             self.title = title
+            return self.title
         else:
             self.title = None
             print("invalid value")
@@ -69,6 +71,7 @@ class TodoItem:
         print("description changed")
         if type(description) == str:
             self.description = description
+            return self.description
         else:
             self.description = None
             print("invalid value")
@@ -77,6 +80,7 @@ class TodoItem:
         print("completed changed")
         if type(completed) == bool:
             self.completed = completed
+            return self.completed
         else:
             self.completed = None
             print("invalid value")
@@ -85,7 +89,6 @@ class TodoItem:
 
 #Feel free to write code below to test the class you've
 #written above!
-
 
 #Hint: You will need to change the body of the constructor
 #and add six new methods to this class, but you should not
