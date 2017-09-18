@@ -86,8 +86,6 @@ class TodoItem:
 #Feel free to write code below to test the class you've
 #written above!
 
-test = TodoItem.getTitle
-print(dir(test))
 
 #Hint: You will need to change the body of the constructor
 #and add six new methods to this class, but you should not
