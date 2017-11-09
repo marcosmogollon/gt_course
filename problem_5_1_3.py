@@ -1,27 +1,37 @@
-#Write a class called "Burrito". A Burrito should have the
-#following attributes (instance variables):
+#Copy your Burrito class from the last exercise. Now,
+#write a getter and a setter method for each attribute.
+#each setter should accept a value as an argument. If the
+#value is a valid value, it should set the corresponding
+#attribute to the given value. Otherwise, it should set the
+#attribute to False. Edit the constructor to use these new
+#setters and getters.
 #
-# - meat
-# - to_go
-# - rice
-# - beans
-# - extra_meat (default: False)
-# - guacamole (default: False)
-# - cheese (default: False)
-# - pico (default: False)
-# - corn (default: False)
+#Valid values for each setter are as follows:
+
+# - set_meat: "chicken", "pork", "steak", "tofu", False
+# - set_to_go: True, False
+# - set_rice: "brown", "white", False
+# - set_beans: "black", "pinto", False
+# - set_extra_meat: True, False
+# - set_guacamole: True, False
+# - set_cheese: True, False
+# - set_pico: True, False
+# - set_corn: True, False
+
+#Make sure you name each setter with the format:
+#"set_some_attribute" and "get_some_attribute"
 #
-#The constructor should let any of these attributes be
-#changed when the object is instantiated. The attributes
-#with a default value should be optional.
+#For example, the getter for meat would be get_meat. The
+#getter for to_go would be get_to_go.
 #
-#Hint: Notice that we haven't specified types for the
-#non-optional attributes: that's because the types for
-#those won't matter!
+#Hint: Your code is going to end up *very* long. This
+#will be the longest program you've written so far, but
+#it isn't the most complex. Complexity and length are
+#often very different!
 #
-#Hint 2: Think about how we can have default values for
-#the last five arguments that can be overridden when the
-#object is instantiated.
+#Hint 2: Checking for valid values will be much easier
+#if you make a list of valid values for each attribute
+#and check the new value against that.
 
 
 #Write your code here!
@@ -93,10 +103,5 @@ class Burrito:
     def get_corn(self):
         return self.corn
 
-#The code below will test your class. If it is written
-#correctly, this will print True, then False. Note,
-#though, that we'll test your code against more complex
-#test cases when you submit.
-newBurrito = Burrito("Tofu", True, True, True)
-print(newBurrito.to_go)
-print(newBurrito.guacamole)
+#Feel free to add code below to test out the class that
+#you've written. It won't be used for grading
