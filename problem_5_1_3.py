@@ -49,31 +49,72 @@ class Burrito:
 
     # setter functions:
     def set_meat(self, meat):
-        self.meat = meat
+        #check if the correct type of meat is provided and if not set the instance variable to False
+        if not ((meat is "chicken") or (meat is "pork") or (meat is "steak") or (meat is "tofu")):
+            self.meat = False
+        else:
+            # if the correct type of meat is provided the set the instance
+            #variable to the provided type and return the instance variable
+            self.meat = meat
+            return self.meat
 
     def set_to_go(self, to_go):
-        self.to_go = to_go
+        if not((to_go is True) or (to_go is False)):
+            self.to_go = False
+        else:
+            self.to_go = to_go
+            return self.to_go
 
     def set_rice(self, rice):
-        self.rice = rice
+        if not((rice is "brown") or (rice is "white")):
+            self.rice = False
+        else:
+            self.rice = rice
+            return self.rice
 
     def set_beans(self, beans):
-        self.beans = beans
+        if not((beans is "black") or (beans is "pinto")):
+            self.beans = False
+        else:
+            self.beans = beans
+            return self.beans
 
     def set_extra_meat(self, extra_meat):
-        self.extra_meat = False
+        if not((extra_meat is False) or (extra_meat is True)):
+            self.extra_meat = False
+        else:
+            self.extra_meat = extra_meat
+            return self.extra_meat
 
     def set_guacamole(self, guacamole):
-        self.guacamole = False
+        if not((guacamole is False) or (guacamole is True)):
+            self.guacamole = False
+        else:
+            self.guacamole = guacamole
+            return self.guacamole
 
     def set_cheese(self, cheese):
-        self.cheese = False
+        if not((cheese is False) or (cheese is True)):
+            self.cheese = False
+        else:
+            self.cheese = cheese
+            return self.cheese
 
     def set_pico(self, pico):
-        self.pico = False
+        if not((pico is False) or (pico is True)):
+            self.pico = False
+        else:
+            self.pico = pico
+            return self.pico
+
 
     def set_corn(self, corn):
-        self.corn = False
+        if not((corn is False) or (corn is True)):
+            self.corn = False
+        else:
+            self.corn = corn
+            return self.corn
+
 
     # getter functions
     def get_meat(self):
@@ -105,3 +146,7 @@ class Burrito:
 
 #Feel free to add code below to test out the class that
 #you've written. It won't be used for grading
+
+newBurrito = Burrito("tofu", True, True, True)
+print(newBurrito.rice)
+print(newBurrito.guacamole)
