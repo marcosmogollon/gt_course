@@ -184,19 +184,19 @@ class Burrito:
 
     def get_cost(self):
         base_cost = float(5)
-        if (self.extra_meat is True) and (not self.meat is False):
+        if (self.extra_meat is True) and (not self.meat.get_value() is False):
             base_cost = base_cost + 1
         if self.guacamole is True:
             base_cost = base_cost + 0.75
-        if (self.meat == "chicken") or (self.meat == "pork") or (self.meat == "tofu"):
+        if (self.meat.get_value() == "chicken") or (self.meat.get_value() == "pork") or (self.meat.get_value() == "tofu"):
             base_cost = base_cost + 1
-        if self.meat == "steak":
+        if self.meat.get_value() == "steak":
             base_cost = base_cost + 1.5
 
         return base_cost
 
-new_buritto = Burrito("pork", True, "brown", "pinto")
+new_buritto = Burrito("chicken", True, "brown", "pinto", guacamole=True)
 
-print(new_buritto.meat.get_value())
-print(new_buritto.rice.get_value())
-print(new_buritto.beans.get_value())
+#print(new_buritto.meat.get_value())
+#print(new_buritto.rice.get_value())
+print(new_buritto.get_cost())
