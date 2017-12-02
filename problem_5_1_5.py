@@ -83,12 +83,13 @@ class Beans:
             self.value = False
 
 #Write your code here!
+#Write your code here!
 class Burrito:
     def __init__(self, meat, to_go, rice, beans, extra_meat=False, guacamole=False, cheese=False, pico=False, corn=False):
-        self.meat = Meat.set_value(meat)
+        self.meat = Meat(meat)
         self.set_to_go(to_go)
-        self.rice = Rice.set_value(rice)
-        self.beans = Beans.set_value(beans)
+        self.rice = Rice(rice)
+        self.beans = Beans(beans)
         self.set_extra_meat(extra_meat)
         self.set_guacamole(guacamole)
         self.set_cheese(cheese)
@@ -97,7 +98,11 @@ class Burrito:
 
     # setter functions:
     def set_meat(self, meat):
-        self.meat = Meat.set_value(meat)
+        self.meat = Meat(meat)
+        # this is the same as the constructor because you initiall want to set
+        # the value but you might want to change it again later, this is
+        # why the code is repeated here (and in the other setter functions
+        # that are using the above classes)
 
     def set_to_go(self, to_go):
         if not((to_go is True) or (to_go is False)):
@@ -107,10 +112,10 @@ class Burrito:
             return self.to_go
 
     def set_rice(self, rice):
-        self.rice = Rice.set_value(rice)
+        self.rice = Rice(rice)
 
     def set_beans(self, beans):
-        self.beans = Beans.set_value(beans)
+        self.beans = Beans(beans)
 
     def set_extra_meat(self, extra_meat):
         if not((extra_meat is False) or (extra_meat is True)):
@@ -151,16 +156,16 @@ class Burrito:
 
     # getter functions
     def get_meat(self):
-        return Meat.get_value
+        return self.meat.get_value()
 
     def get_to_go(self):
        return self.to_go
 
     def get_rice(self):
-        return Rice.get_value
+        return self.rice.get_value()
 
     def get_beans(self):
-        return Beans.get_value
+        return self.beans.get_value()
 
     def get_extra_meat(self):
         return self.extra_meat
@@ -191,4 +196,7 @@ class Burrito:
         return base_cost
 
 new_buritto = Burrito("pork", True, "brown", "pinto")
-print(dir(new_buritto.beans.get_value))
+
+print(new_buritto.meat.get_value())
+print(new_buritto.rice.get_value())
+print(new_buritto.beans.get_value())
