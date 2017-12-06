@@ -24,8 +24,8 @@ def selectionSort(aList):
             #index in the variable minIndex.
             #
             #Write your code here!
-            temp = j
-        print(temp)
+            if aList[minIndex] < aList[j]:
+                minIndex = j   
 
 
         #Save the current minimum value since we're about
